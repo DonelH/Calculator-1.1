@@ -11,8 +11,8 @@ expression = ""
 #Function for pressing button functionality
 def press(num):
     global expression
-    if (type(expression) == float):
-        str(expression)
+    if (type(expression) != str):
+        expression = str(expression)
     expression = expression + str(num)
     equation.set(expression)
     
@@ -24,7 +24,6 @@ def equalpress():
         total = str(eval(expression))
         equation.set(total)
         expression = total
-        print(expression)
     except:
         equation.set(" error ")
         expression = ""
@@ -32,19 +31,16 @@ def equalpress():
 # Function for squaring numbers
 def square():
     global expression
-    squared = math.pow(int(expression), 2)
+    squared = math.pow(float(expression), 2)
     equation.set(squared)
     expression = squared
-    print(expression)
-    print(type(expression))
     
 # Function for square rooting numbers
 def squareRoot():
     global expression
-    squareRooted = math.sqrt(int(expression))
+    squareRooted = math.sqrt(float(expression))
     equation.set(squareRooted)
     expression = squareRooted
-    print(expression)
 
 #Functions for Increasing/Decreasing font size    
 def fontSizePlus():
